@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 0}
-  jumpForce: 15
+  jumpForce: 10
   gravityMod: 2
   isOnGround: 1
   twiceJump: 0
@@ -215,9 +215,9 @@ MonoBehaviour:
   playerAnim: {fileID: 116957907}
   playerExplodation: {fileID: 1022824296}
   playerDirt: {fileID: 55580850}
-  soundJump: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
-  soundCrash: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
-  playerSound: {fileID: 0}
+  soundJump: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
+  soundCrash: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
+  playerSound: {fileID: 116957909}
 --- !u!65 &84239674
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -681,7 +681,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d70999ba737574c808b1d37cbdca0c37, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

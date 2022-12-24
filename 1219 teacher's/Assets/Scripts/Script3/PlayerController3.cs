@@ -22,7 +22,7 @@ public class PlayerController3 : MonoBehaviour
     public ParticleSystem playerDirt; //使用粒子特效 塵埃效果 1/4
     public AudioClip soundJump;
     public AudioClip soundCrash;
-    public AudioSource playerSound;
+    public AudioSource playerSound;  //定義聲音來源
 
     void Start()
     {
