@@ -32,7 +32,7 @@ public class PlayerController3 : MonoBehaviour
 
         //week15 使用動畫 Animator 2/3
         playerAnim = GetComponent<Animator>(); //取得本身物件的動畫控制元件
-        //playerSound = GetComponent<AudioSource>();
+        playerSound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -49,7 +49,7 @@ public class PlayerController3 : MonoBehaviour
             playerAnim.SetTrigger("Jump_trig"); // 告訴電腦啟動跳躍 變數 
             playerAnim.speed = 5;
             playerDirt.Stop(); //使用粒子特效 塵埃效果 跳躍時要停止 2/4
-            //playerSound.PlayerOneShot(soundJump, 3);
+            playerSound.PlayOneShot(soundJump, 3);
         }
     }
 
@@ -73,7 +73,7 @@ public class PlayerController3 : MonoBehaviour
 
             playerExplodation.Play(); //使用粒子特效 ParticleSystem 1/2
             playerDirt.Stop(); //使用粒子特效 塵埃效果 遊戲結束後要停止 4/4
-            //playerSound.PlayerOneShot(soundCrash, 1);
+            playerSound.PlayOneShot(soundCrash, 1);
         }
         
         
