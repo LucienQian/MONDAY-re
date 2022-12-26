@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController3 : MonoBehaviour
@@ -24,6 +25,9 @@ public class PlayerController3 : MonoBehaviour
     public AudioClip soundCrash;
     public AudioSource playerSound;  //定義聲音來源
 
+    public TextMeshProUGUI gameNameText;
+    public TextMeshProUGUI jumpText;
+
     void Start()
     {
         //獲得剛體的控制權
@@ -33,6 +37,9 @@ public class PlayerController3 : MonoBehaviour
         //week15 使用動畫 Animator 2/3
         playerAnim = GetComponent<Animator>(); //取得本身物件的動畫控制元件
         playerSound = GetComponent<AudioSource>();
+
+        gameNameText.gameObject.SetActive(true);
+
     }
 
     void Update()
@@ -49,8 +56,23 @@ public class PlayerController3 : MonoBehaviour
             playerAnim.SetTrigger("Jump_trig"); // 告訴電腦啟動跳躍 變數 
             playerAnim.speed = 5;
             playerDirt.Stop(); //使用粒子特效 塵埃效果 跳躍時要停止 2/4
-            playerSound.PlayOneShot(soundJump, 3);
+            playerSound.PlayOneShot(soundJump, 2);
+            jumpText.gameObject.SetActive(true);
         }
+
+        if (gameObject.transform.position.y > 3)
+        {
+            jumpText.gameObject.SetActive(false);
+        }
+
+
+        //判斷跳高時，避免超過螢幕的高度
+        if (this.transform.position.y >=9)
+        {
+            this.transform.position = new Vector3(0, 9, 0);
+        }
+
+        gameNameText.gameObject.SetActive(true);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -62,6 +84,8 @@ public class PlayerController3 : MonoBehaviour
             //playerAnim.SetFloat("Speed_f", 1);
             playerAnim.speed = 1;
             playerDirt.Play(); //使用粒子特效 塵埃效果 接觸地面要播放 3/4
+            jumpText.gameObject.SetActive(false);
+
         } else if (collision.gameObject.CompareTag("Obstacle"))
         {
             gameOver = true;
@@ -74,6 +98,8 @@ public class PlayerController3 : MonoBehaviour
             playerExplodation.Play(); //使用粒子特效 ParticleSystem 1/2
             playerDirt.Stop(); //使用粒子特效 塵埃效果 遊戲結束後要停止 4/4
             playerSound.PlayOneShot(soundCrash, 1);
+
+            jumpText.gameObject.SetActive(false);
         }
         
         
