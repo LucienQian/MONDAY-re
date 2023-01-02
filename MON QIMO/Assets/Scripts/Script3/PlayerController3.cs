@@ -61,7 +61,7 @@ public class PlayerController3 : MonoBehaviour
             jumpText.gameObject.SetActive(true);
         }
 
-        if (gameObject.transform.position.y > 3)
+        if (gameObject.transform.position.y > 0.4f)
         {
             jumpText.gameObject.SetActive(false);
         }
